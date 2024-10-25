@@ -2,7 +2,7 @@ import time
 import requests
 from bs4 import BeautifulSoup
 
-phpsessid = "айди сессии"
+phpsessid = "sfrapr20k88p60p7uvltmsi663"
 
 
 class Bot:
@@ -83,10 +83,12 @@ class Bot:
 
                 if "Победа" in monster.text or "Поражение" in monster.text:
                     bs_parser = BeautifulSoup(monster.text, "html.parser")
-
-                    result = bs_parser.find_all("div", class_="lr-af flex-d flex-fd-c")[
-                        1
-                    ].text
+                    result = ""
+                    
+                    if "Победа" in monster.text:
+                        result = bs_parser.find_all("div", class_="lr-af flex-d flex-fd-c")[
+                            1
+                        ].text
 
                     print(
                         (
